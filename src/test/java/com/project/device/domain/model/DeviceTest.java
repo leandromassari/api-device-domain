@@ -276,7 +276,7 @@ class DeviceTest {
       Device device =
           new Device(deviceId, "iPhone 14", "Apple", DeviceState.AVAILABLE, creationTime);
 
-      assertNotEquals(device, "not a device", "Device should not be equal to different class");
+      assertNotEquals("not a device", device, "Device should not be equal to different class");
     }
   }
 

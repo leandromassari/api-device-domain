@@ -6,7 +6,6 @@ import com.project.device.domain.port.DeviceRepositoryPort;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 /**
@@ -46,23 +45,17 @@ public class DeviceRepositoryAdapter implements DeviceRepositoryPort {
 
   @Override
   public List<Device> findAll() {
-    return jpaRepository.findAll().stream()
-        .map(DeviceMapper::toDomain)
-        .collect(Collectors.toList());
+    return jpaRepository.findAll().stream().map(DeviceMapper::toDomain).toList();
   }
 
   @Override
   public List<Device> findByBrand(String brand) {
-    return jpaRepository.findByBrand(brand).stream()
-        .map(DeviceMapper::toDomain)
-        .collect(Collectors.toList());
+    return jpaRepository.findByBrand(brand).stream().map(DeviceMapper::toDomain).toList();
   }
 
   @Override
   public List<Device> findByState(DeviceState state) {
-    return jpaRepository.findByState(state).stream()
-        .map(DeviceMapper::toDomain)
-        .collect(Collectors.toList());
+    return jpaRepository.findByState(state).stream().map(DeviceMapper::toDomain).toList();
   }
 
   @Override

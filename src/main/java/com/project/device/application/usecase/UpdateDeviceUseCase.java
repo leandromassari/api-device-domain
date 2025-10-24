@@ -48,7 +48,7 @@ public class UpdateDeviceUseCase {
     Device existingDevice =
         deviceRepository.findById(id).orElseThrow(() -> new DeviceNotFoundException(id));
 
-    validateNameAndBrandUpdate(existingDevice, name, brand);
+    validateNameAndBrandUpdate(existingDevice);
     validateStateTransition(existingDevice, state);
 
     existingDevice.setName(name);
@@ -78,7 +78,7 @@ public class UpdateDeviceUseCase {
         deviceRepository.findById(id).orElseThrow(() -> new DeviceNotFoundException(id));
 
     if (name != null || brand != null) {
-      validateNameAndBrandUpdate(existingDevice, name, brand);
+      validateNameAndBrandUpdate(existingDevice);
     }
 
     if (name != null) {
@@ -97,7 +97,7 @@ public class UpdateDeviceUseCase {
     return deviceRepository.save(existingDevice);
   }
 
-  private void validateNameAndBrandUpdate(Device device, String name, String brand) {
+  private void validateNameAndBrandUpdate(Device device) {
     if (!device.canUpdateNameOrBrand()) {
       throw new InvalidDeviceOperationException(
           "Cannot update name or brand of device in IN_USE state: " + device.getId());

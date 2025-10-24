@@ -12,7 +12,6 @@ import com.project.device.infrastructure.adapter.rest.dto.DeviceUpdateRequest;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -123,8 +122,7 @@ public class DeviceController {
   @GetMapping
   public ResponseEntity<List<DeviceResponse>> getAllDevices() {
     List<Device> devices = getDeviceUseCase.findAll();
-    List<DeviceResponse> response =
-        devices.stream().map(DeviceMapper::toResponse).collect(Collectors.toList());
+    List<DeviceResponse> response = devices.stream().map(DeviceMapper::toResponse).toList();
     return ResponseEntity.ok(response);
   }
 
@@ -137,8 +135,7 @@ public class DeviceController {
   @GetMapping("/brand/{brand}")
   public ResponseEntity<List<DeviceResponse>> getDevicesByBrand(@PathVariable String brand) {
     List<Device> devices = getDeviceUseCase.findByBrand(brand);
-    List<DeviceResponse> response =
-        devices.stream().map(DeviceMapper::toResponse).collect(Collectors.toList());
+    List<DeviceResponse> response = devices.stream().map(DeviceMapper::toResponse).toList();
     return ResponseEntity.ok(response);
   }
 
@@ -151,8 +148,7 @@ public class DeviceController {
   @GetMapping("/state/{state}")
   public ResponseEntity<List<DeviceResponse>> getDevicesByState(@PathVariable DeviceState state) {
     List<Device> devices = getDeviceUseCase.findByState(state);
-    List<DeviceResponse> response =
-        devices.stream().map(DeviceMapper::toResponse).collect(Collectors.toList());
+    List<DeviceResponse> response = devices.stream().map(DeviceMapper::toResponse).toList();
     return ResponseEntity.ok(response);
   }
 

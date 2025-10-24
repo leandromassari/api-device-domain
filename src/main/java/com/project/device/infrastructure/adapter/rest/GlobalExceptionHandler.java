@@ -6,7 +6,6 @@ import com.project.device.domain.exception.InvalidDeviceOperationException;
 import com.project.device.infrastructure.adapter.rest.dto.ErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -112,7 +111,7 @@ public class GlobalExceptionHandler {
                   }
                   return error.getDefaultMessage();
                 })
-            .collect(Collectors.toList());
+            .toList();
 
     ErrorResponse error =
         new ErrorResponse(
