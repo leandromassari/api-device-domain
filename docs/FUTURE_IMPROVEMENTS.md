@@ -1217,4 +1217,4 @@ Have ideas for improvements? See [CONTRIBUTING.md](../CONTRIBUTING.md) for how t
 
 **Last Updated**: 2025-10-24
 **Roadmap Version**: 1.0
-**Maintained By**: Development Team
+**Maintained By**: Leandro Massari

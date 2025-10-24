@@ -946,4 +946,4 @@ For API issues or questions:
 
 **Last Updated**: 2025-10-24
 **API Version**: 1.0.0
-**Maintained By**: Development Team
+**Maintained By**: Leandro Massari

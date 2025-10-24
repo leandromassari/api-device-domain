@@ -948,4 +948,4 @@ Thank you for contributing! 🚀
 ---
 
 **Last Updated**: 2025-10-24
-**Maintained By**: Development Team
+**Maintained By**: Leandro Massari
