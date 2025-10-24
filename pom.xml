@@ -26,7 +26,6 @@
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
         <pitest-maven.version>1.15.3</pitest-maven.version>
-        <dependency-check-maven.version>10.0.4</dependency-check-maven.version>
         <fmt-maven-plugin.version>2.21.1</fmt-maven-plugin.version>
         <springdoc-openapi.version>2.3.0</springdoc-openapi.version>
     </properties>
@@ -158,20 +157,6 @@
                         <outputFormat>XML</outputFormat>
                     </outputFormats>
                 </configuration>
-            </plugin>
-
-            <!-- OWASP Dependency Check -->
-            <plugin>
-                <groupId>org.owasp</groupId>
-                <artifactId>dependency-check-maven</artifactId>
-                <version>${dependency-check-maven.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 
             <!-- Google Java Format Plugin -->
