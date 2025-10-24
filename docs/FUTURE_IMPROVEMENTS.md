@@ -998,8 +998,6 @@ jobs:
       run: mvn test
     - name: Code coverage
       run: mvn jacoco:report
-    - name: SonarQube scan
-      run: mvn sonar:sonar
     - name: Build Docker image
       run: docker build -t device-api:${{ github.sha }} .
     - name: Push to registry

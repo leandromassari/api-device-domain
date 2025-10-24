@@ -13,7 +13,6 @@ A production-ready Spring Boot 3.2+ REST API for device domain management, built
 - [Docker Deployment](#docker-deployment)
 - [API Documentation](#api-documentation)
 - [Health Checks](#health-checks)
-- [SonarQube Integration](#sonarqube-integration)
 - [Project Structure](#project-structure)
 
 ## Overview
@@ -184,10 +183,6 @@ Mutation test report will be generated at: `target/pit-reports/index.html`
 ### Run All Quality Checks
 
 ```bash
-# Using Makefile (recommended)
-make build
-
-# Or manually
 mvn clean verify jacoco:report pitest:mutationCoverage
 ```
 
@@ -212,17 +207,6 @@ mvn dependency-check:check
 Report will be generated at: `target/dependency-check-report.html`
 
 **Note:** Set `NVD_API_KEY` environment variable to avoid rate limiting.
-
-### Available Quality Targets (Makefile)
-
-```bash
-make format           # Format code
-make format-check     # Check formatting
-make security-scan    # OWASP dependency check
-make mutation-test    # PITest mutation testing
-make coverage         # JaCoCo coverage report
-make verify           # Full verification
-```
 
 ## Docker Deployment
 
@@ -263,16 +247,6 @@ DB_USER=postgres
 DB_PASS=postgres
 DB_MAX_CONNECTIONS=10
 SPRING_PROFILES_ACTIVE=prod
-```
-
-### Makefile Docker Targets
-
-```bash
-make docker-build     # Build Docker image
-make deploy           # Deploy with Docker Compose
-make docker-logs      # View container logs
-make docker-stop      # Stop containers
-make clean-all        # Clean everything (containers, volumes, builds)
 ```
 
 ## API Documentation
@@ -343,44 +317,6 @@ docker ps
 # View health check logs
 docker inspect --format='{{json .State.Health}}' device-api | jq
 ```
-
-## SonarQube Integration
-
-### Run SonarQube Analysis
-
-```bash
-# Using script
-./run-sonar.sh
-
-# Or using Makefile
-make sonar
-
-# Or using Maven
-mvn sonar:sonar \
-  -Dsonar.projectKey=api-device-domain \
-  -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.login=your-token
-```
-
-### SonarQube Setup
-
-1. **Start SonarQube (Docker)**:
-```bash
-docker run -d --name sonarqube \
-  -p 9000:9000 \
-  sonarqube:latest
-```
-
-2. **Access SonarQube**: `http://localhost:9000`
-3. **Create project token** and configure in Maven settings
-
-### Quality Gates
-
-The project enforces:
-- 80%+ code coverage
-- No critical vulnerabilities
-- No code smells (major)
-- Maintainability rating A
 
 ## Project Structure
 
@@ -469,32 +405,7 @@ api-device-domain/
 
 ## Development Commands
 
-### Using Makefile (Recommended)
-
-```bash
-make help              # Show all available commands
-
-# Build & Test
-make build             # Full build pipeline
-make compile           # Compile only
-make test              # Run tests
-make verify            # Maven verify
-make install           # Install to local repo
-
-# Code Quality
-make format            # Format code
-make coverage          # Generate coverage report
-make mutation-test     # Run mutation tests
-make security-scan     # OWASP dependency check
-
-# Docker
-make docker-build      # Build image
-make deploy            # Deploy with compose
-make docker-stop       # Stop containers
-make clean-all         # Clean everything
-```
-
-### Using Maven Directly
+### Maven Commands
 
 ```bash
 mvn clean install                   # Full build with tests
