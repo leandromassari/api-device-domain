@@ -5,6 +5,7 @@ import com.project.device.domain.model.DeviceState;
 import com.project.device.domain.port.DeviceRepositoryPort;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import org.springframework.stereotype.Service;
 
 /**
  * Use case for creating a new device.
@@ -14,6 +15,7 @@ import java.util.UUID;
  *
  * <p>Follows the Single Responsibility Principle by focusing solely on device creation logic.
  */
+@Service
 public class CreateDeviceUseCase {
 
   private final DeviceRepositoryPort deviceRepository;

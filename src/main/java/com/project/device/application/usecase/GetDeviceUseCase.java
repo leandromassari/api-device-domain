@@ -6,6 +6,7 @@ import com.project.device.domain.model.DeviceState;
 import com.project.device.domain.port.DeviceRepositoryPort;
 import java.util.List;
 import java.util.UUID;
+import org.springframework.stereotype.Service;
 
 /**
  * Use case for retrieving device information.
@@ -15,6 +16,7 @@ import java.util.UUID;
  *
  * <p>Follows the Single Responsibility Principle by focusing solely on device retrieval operations.
  */
+@Service
 public class GetDeviceUseCase {
 
   private final DeviceRepositoryPort deviceRepository;

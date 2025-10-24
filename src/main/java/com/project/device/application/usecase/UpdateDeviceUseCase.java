@@ -6,6 +6,7 @@ import com.project.device.domain.model.Device;
 import com.project.device.domain.model.DeviceState;
 import com.project.device.domain.port.DeviceRepositoryPort;
 import java.util.UUID;
+import org.springframework.stereotype.Service;
 
 /**
  * Use case for updating existing devices.
@@ -15,6 +16,7 @@ import java.util.UUID;
  *
  * <p>Follows the Single Responsibility Principle by focusing solely on device update logic.
  */
+@Service
 public class UpdateDeviceUseCase {
 
   private final DeviceRepositoryPort deviceRepository;

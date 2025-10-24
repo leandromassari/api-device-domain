@@ -3,10 +3,12 @@ spring:
     name: api-device-domain
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/devicedb
-    username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:postgres}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/devicedb}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASS:postgres}
     driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: ${DB_MAX_CONNECTIONS:10}
 
   jpa:
     hibernate:
@@ -26,13 +28,13 @@ spring:
 server:
   port: 8080
   servlet:
-    context-path: /api
+    context-path: /device-domain
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
+        include: health,info
   endpoint:
     health:
       show-details: when-authorized

@@ -5,6 +5,7 @@ import com.project.device.domain.exception.DeviceNotFoundException;
 import com.project.device.domain.model.Device;
 import com.project.device.domain.port.DeviceRepositoryPort;
 import java.util.UUID;
+import org.springframework.stereotype.Service;
 
 /**
  * Use case for deleting devices.
@@ -14,6 +15,7 @@ import java.util.UUID;
  *
  * <p>Follows the Single Responsibility Principle by focusing solely on device deletion logic.
  */
+@Service
 public class DeleteDeviceUseCase {
 
   private final DeviceRepositoryPort deviceRepository;

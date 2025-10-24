@@ -28,6 +28,7 @@
         <pitest-maven.version>1.15.3</pitest-maven.version>
         <fmt-maven-plugin.version>2.21.1</fmt-maven-plugin.version>
         <springdoc-openapi.version>2.3.0</springdoc-openapi.version>
+        <flyway.version>10.21.0</flyway.version>
     </properties>
 
     <dependencies>
@@ -63,6 +64,14 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
+            <version>${flyway.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-postgresql</artifactId>
+            <version>${flyway.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- OpenAPI Documentation -->
@@ -76,6 +85,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
